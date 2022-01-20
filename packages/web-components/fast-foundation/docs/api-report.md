@@ -2798,6 +2798,7 @@ export class VirtualList extends FoundationElement {
     orientation: Orientation;
     requestPositionUpdates: () => void;
     protected reset(): void;
+    // @internal
     spanMap: SpanMap[];
     // @internal
     startSpacerSpan: number;
