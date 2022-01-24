@@ -2795,8 +2795,6 @@ export class VirtualList extends FoundationElement {
     requestPositionUpdates: () => void;
     protected reset(): void;
     // @internal
-    spanMap: SpanMap[];
-    // @internal
     startSpacerSpan: number;
     // @internal
     totalStackSpan: number;
@@ -2811,6 +2809,8 @@ export class VirtualList extends FoundationElement {
     virtualize: boolean;
     // @internal
     visibleItems: any[];
+    // @internal
+    visibleItemSpans: SpanMap[];
     }
 
 // @beta
