@@ -2822,6 +2822,7 @@ export class VirtualListItem extends FoundationElement {
     // @internal (undocumented)
     disconnectedCallback(): void;
     itemData: object;
+    itemIndex: number;
     listItemContext: VirtualListItemContext;
     // @internal (undocumented)
     resolveTemplate(): ViewTemplate;
@@ -2830,7 +2831,7 @@ export class VirtualListItem extends FoundationElement {
 // @public
 export interface VirtualListItemContext {
     // (undocumented)
-    listItemTemplate: ViewTemplate;
+    listItemContentsTemplate: ViewTemplate;
 }
 
 // @public
