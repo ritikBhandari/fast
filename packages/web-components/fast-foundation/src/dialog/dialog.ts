@@ -1,6 +1,6 @@
 import { attr, DOM, Notifier, Observable } from "@microsoft/fast-element";
 import { keyEscape, keyTab } from "@microsoft/fast-web-utilities";
-import { isTabbable } from "tabbable";
+import { isTabbable, tabbable } from "tabbable";
 import { FoundationElement } from "../foundation-element";
 
 /**
@@ -208,9 +208,9 @@ export class Dialog extends FoundationElement {
     };
 
     private getTabQueueBounds = (): (HTMLElement | SVGElement)[] => {
-        const bounds: HTMLElement[] = [];
+        // const bounds: HTMLElement[] = [];
 
-        return Dialog.reduceTabbableItems(bounds, this);
+        return tabbable(this);
     };
 
     /**
