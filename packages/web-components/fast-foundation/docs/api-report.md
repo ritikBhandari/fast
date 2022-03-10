@@ -2226,6 +2226,16 @@ export function singleton<T extends Constructable>(options?: SingletonOptions): 
 export function singleton<T extends Constructable>(target: T & Partial<RegisterSelf<T>>): T & RegisterSelf<T>;
 
 // @public
+export interface SizeMap {
+    // (undocumented)
+    end: number;
+    // (undocumented)
+    size: number;
+    // (undocumented)
+    start: number;
+}
+
+// @public
 export class Skeleton extends FoundationElement {
     fill: string;
     pattern: string;
@@ -2345,16 +2355,6 @@ export type SliderOptions = FoundationElementDefinition & {
 
 // @public
 export const sliderTemplate: FoundationElementTemplate<ViewTemplate<Slider>, SliderOptions>;
-
-// @public
-export interface SpanMap {
-    // (undocumented)
-    end: number;
-    // (undocumented)
-    span: number;
-    // (undocumented)
-    start: number;
-}
 
 // @public
 export class StartEnd {
@@ -2781,10 +2781,10 @@ export class VirtualList extends FoundationElement {
     // @internal (undocumented)
     disconnectedCallback(): void;
     // @internal
-    endSpacerSpan: number;
+    endSpacerSize: number;
     // @internal
     firstRenderedIndex: number;
-    getItemSpanMap: (itemIndex: number) => SpanMap | null;
+    getItemSizeMap: (itemIndex: number) => SizeMap | null;
     // @internal
     handleChange(source: any, splices: Splice[]): void;
     // Warning: (ae-forgotten-export) The symbol "IdleCallbackQueue" needs to be exported by the entry point index.d.ts
@@ -2793,7 +2793,7 @@ export class VirtualList extends FoundationElement {
     idleCallbackQueue: IdleCallbackQueue;
     idleCallbackTimeout: number;
     items: object[];
-    itemSpan: number;
+    itemSize: number;
     itemTemplate: ViewTemplate;
     // @internal
     lastRenderedIndex: number;
@@ -2802,20 +2802,20 @@ export class VirtualList extends FoundationElement {
     recycle: boolean;
     protected requestPositionUpdates(): void;
     protected reset(): void;
-    spanmap: SpanMap[];
+    sizemap: SizeMap[];
     // @internal
-    startSpacerSpan: number;
+    startSpacerSize: number;
     // @internal
-    totalListSpan: number;
+    totalListSize: number;
     update(): void;
     viewport: string;
     viewportBuffer: number;
     viewportElement: HTMLElement;
     virtualize: boolean;
     // @internal
-    visibleItems: any[];
+    visibleItemMap: SizeMap[];
     // @internal
-    visibleItemSpans: SpanMap[];
+    visibleItems: any[];
 }
 
 // @public
